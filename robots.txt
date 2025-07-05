@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nicolasdayvison.github.io/grazy-web/sitemap.xml 
