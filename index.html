@@ -96,6 +96,23 @@
             color: var(--text-main);
             overflow-x: hidden;
         }
+
+        /* Degradês suaves para cada seção */
+        .section-gradient-1 {
+            background: linear-gradient(135deg, var(--bg-color-1) 0%, var(--bg-color-2) 50%, var(--bg-color-3) 100%);
+        }
+        
+        .section-gradient-2 {
+            background: linear-gradient(135deg, var(--bg-color-2) 0%, var(--bg-color-3) 50%, var(--primary) 100%);
+        }
+        
+        .section-gradient-3 {
+            background: linear-gradient(135deg, var(--bg-color-3) 0%, var(--primary) 50%, var(--secondary) 100%);
+        }
+        
+        .section-gradient-4 {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--bg-color-1) 100%);
+        }
         .gradient-btn {
             background-image: linear-gradient(to right, var(--primary), var(--secondary));
             transition: all 0.4s ease;
@@ -207,7 +224,7 @@
                 <div class="text-center lg:text-left z-10 flex flex-col justify-center h-full">
                     <h1 class="text-5xl lg:text-7xl font-bold" style="color: var(--text-dark);">Grazy Batista</h1>
                     <p class="text-xl lg:text-2xl font-medium mt-3" style="color: var(--text-accent);">Criadora de Conteúdo UGC</p>
-                    <p class="max-w-xl mx-auto lg:mx-0 mt-6 text-sm lg:text-base leading-relaxed" style="color: var(--text-main);">Sou criadora de conteúdo com foco em maternidade, moda acessível, beleza real, lifestyle e bem-estar feminino. Produzo vídeos e conteúdos autênticos que traduzem minha rotina com leveza, verdade e conexão genuína com o público.<br><br>Meu propósito é inspirar mulheres reais, mostrando que é possível se cuidar e se sentir bem com simplicidade e identidade. Sou estudante de Enfermagem, o que me dá ainda mais sensibilidade para criar conteúdos com empatia, propósito e autoridade.</p>
+                    <p class="max-w-xl mx-auto lg:mx-0 mt-6 text-sm lg:text-base leading-relaxed" style="color: var(--text-main);">Sou criadora de conteúdo, mãe de gêmeos, com foco em maternidade, beleza real, lifestyle e bem-estar feminino. Produzo vídeos e conteúdos autênticos que traduzem minha rotina com leveza, verdade e conexão genuína com o público.<br><br>Meu propósito é inspirar mulheres reais, mostrando que é possível se cuidar e se sentir bem com simplicidade e identidade. Sou estudante de Enfermagem, o que me dá ainda mais sensibilidade para criar conteúdos com empatia, propósito e autoridade.</p>
                     <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
                         <a href="#contato" class="gradient-btn text-white font-bold py-3 px-10 rounded-full shadow-lg w-full sm:w-auto">Vamos conversar!</a>
                         <a href="#portfolio" class="btn font-bold py-3 px-10 rounded-full shadow-lg w-full sm:w-auto" style="background-color: var(--btn-secondary-bg); color: var(--btn-secondary-text);">Ver Portfólio</a>
@@ -230,138 +247,173 @@
         </header>
 
         <main>
-            <!-- Seção: Como trabalho com UGC -->
-            <section class="reveal py-16 px-6 rounded-3xl shadow-lg my-16" style="background-color: var(--card-bg);">
-                <div class="text-center">
-                    <h2 class="text-4xl md:text-5xl font-bold leading-tight" style="color: var(--text-dark);">Como trabalho com UGC</h2>
-                    <p class="text-sm mt-6 max-w-4xl mx-auto" style="color: var(--text-main);">Atuo como criadora de conteúdo UGC (User Generated Content), desenvolvendo vídeos e fotos originais, com estética pensada para aproximar a marca do consumidor de forma real e confiável. Meu diferencial é unir <span class="font-semibold" style="color: var(--text-accent);">naturalidade, boas estratégias de roteiro, edição atual e entrega profissional</span>, criando materiais que geram conexão e conversão.</p>
-                    <p class="mt-4 max-w-4xl mx-auto leading-relaxed text-sm" style="color: var(--text-main);">Produzo conteúdo personalizado para marcas utilizarem em seus próprios canais, campanhas e anúncios.</p>
+            <!-- Seção: Marcas que já trabalhei -->
+            <section class="reveal py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-sm font-medium mb-2" style="color: var(--text-accent);">Grazy Batista · UGC Creator</h2>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-dark);">Marcas que já trabalhei</h1>
+                    <p class="text-sm max-w-2xl mx-auto" style="color: var(--text-main);">Parcerias autênticas com marcas que confiam no meu trabalho</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                    <!-- Marca 1 -->
+                    <div class="group">
+                        <!-- Área da Logo -->
+                        <div class="mb-4 flex justify-center">
+                            <div class="w-20 h-20 rounded-full shadow-md flex items-center justify-center border-2 border-gray-200 overflow-hidden">
+                                <img src="images/Marca1.jpg" alt="Logo Marca 1" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- Nome da Marca -->
+                        <div class="text-center mb-6">
+                            <h3 class="text-lg font-medium" style="color: var(--text-dark);">Bitencourt Performance</h3>
+                        </div>
+                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[500px] w-[250px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
+                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/marca1.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="text-center mt-6">
+                            <p class="text-sm">Performance atlética e produtos para musculação</p>
+                            <a href="https://www.instagram.com/reel/DL4hbE1xVVn/" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);">
+                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Marca 2 -->
+                    <div class="group">
+                        <!-- Área da Logo -->
+                        <div class="mb-4 flex justify-center">
+                            <div class="w-20 h-20 rounded-full shadow-md flex items-center justify-center border-2 border-gray-200 overflow-hidden">
+                                <img src="images/Marca2.png" alt="Logo Marca 2" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- Nome da Marca -->
+                        <div class="text-center mb-6">
+                            <h3 class="text-lg font-medium" style="color: var(--text-dark);">Skence</h3>
+                        </div>
+                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[500px] w-[250px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
+                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/marca2.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="text-center mt-6">
+                            <p class="text-sm" style="color: var(--text-accent);">Cosméticos e produtos de beleza</p>
+                            <a href="https://www.instagram.com/reel/DMK2MgNxeGO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);">
+                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- Seção: Portfólio de Vídeos com Abas -->
-            <section id="portfolio" class="reveal py-20 text-center">
-                <h2 class="text-5xl font-bold" style="color: var(--text-dark);">Meu Portfólio</h2>
-                <p class="text-lg mt-2" style="color: var(--text-accent);">Uma amostra do meu trabalho em cada nicho.</p>
-                
-                <!-- Abas de Navegação -->
-                <div class="mt-12 mb-8 flex flex-wrap justify-center gap-2 sm:gap-4 p-2 rounded-full" style="background-color: var(--card-bg); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <button class="portfolio-tab active px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold" data-tab="moda">Moda</button>
-                    <button class="portfolio-tab px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold" data-tab="maternidade">Maternidade</button>
-                    <button class="portfolio-tab px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold" data-tab="beleza">Beleza</button>
-                    <button class="portfolio-tab px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold" data-tab="cabelos">Cabelos</button>
-                    <button class="portfolio-tab px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold" data-tab="lifestyle">Lifestyle</button>
+            <!-- Seção: Exemplo de vídeos UGC -->
+            <section class="reveal py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-sm font-medium mb-2" style="color: var(--text-accent);">Grazy Batista · UGC Creator</h2>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-dark);">Exemplo de vídeos UGC</h1>
+                    <p class="text-sm max-w-2xl mx-auto" style="color: var(--text-main);">Conteúdo autêntico e profissional para conectar sua marca com o público</p>
                 </div>
-
-                <!-- Conteúdo das Abas -->
-                <div id="portfolio-content">
-                    <!-- Conteúdo Aba Moda -->
-                    <div class="tab-pane active" id="moda">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 justify-items-center">
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/moda1.png"><source src="videos/moda.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLyAYWaxLK6/?igsh=aWs4MWwzMzlteWx0" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Moda 1</a>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/moda2.jpg"><source src="videos/moda_2.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLnPyOmxx2d/?igsh=YTRxdHk1dTFpOTc3" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Moda 2</a>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/moda3.jpg"><source src="videos/moda_3.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLQRmf4Rg5N/?igsh=dzZnNWNoamw3dzR4" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Moda 3</a>
-                            </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <!-- Vídeo 1 - Maternidade -->
+                    <div class="group">
+                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
+                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/maternidade.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="text-center mt-6">
+                            <span class="text-lg font-bold mb-2 block" style="color: var(--text-dark);">Maternidade</span>
+                            <p class="text-sm" style="color: var(--text-accent);">Rotina real e experiências autênticas</p>
+                            <a href="https://www.instagram.com/reel/DLOInQtxZWa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);">
+                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
+                            </a>
                         </div>
                     </div>
-                    <!-- Conteúdo Aba Maternidade -->
-                    <div class="tab-pane hidden" id="maternidade">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 justify-items-center">
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/bb1.jpg"><source src="videos/maternidade.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLOInQtxZWa/?igsh=N3o5cHJ4eHZpMHhw" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Maternidade 1</a>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/bb2.jpg"><source src="videos/maternidade_2.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLvmG3sRpzH/?igsh=NHB6YzRqdmNsaDh6" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Maternidade 2</a>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/bb3.jpg"><source src="videos/maternidade_3.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLs_kTXx3JZ/?igsh=MXAzZmhpNjdjMGNxZg==" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Maternidade 3</a>
-                            </div>
+                    
+                    <!-- Vídeo 2 - Beleza -->
+                    <div class="group">
+                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
+                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/beleza_1.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="text-center mt-6">
+                            <span class="text-lg font-bold mb-2 block" style="color: var(--text-dark);">Beleza</span>
+                            <p class="text-sm" style="color: var(--text-accent);">Produtos acessíveis e funcionais</p>
+                            <a href="https://www.instagram.com/reel/DLECtTSRzi8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);">
+                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
+                            </a>
                         </div>
                     </div>
-                    <!-- Conteúdo Aba Beleza -->
-                    <div class="tab-pane hidden" id="beleza">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 justify-items-center">
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/beleza.png"><source src="videos/beleza_1.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLF5jBFxuKC/?igsh=MXNhM2JicHdhYjUxaA==" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Beleza 1</a>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/beleza2.png"><source src="videos/beleza_2.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLECtTSRzi8/?igsh=d3V4OXljNmE4dnJt" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Beleza 2</a>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/beleza3.png"><source src="videos/beleza_3.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DKqRsFmR7Kk/?igsh=MWozb3I5dWhmZzNiNw==" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Beleza 3</a>
-                            </div>
+                    
+                    <!-- Vídeo 3 - Cabelos -->
+                    <div class="group">
+                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
+                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/C1.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="text-center mt-6">
+                            <span class="text-lg font-bold mb-2 block" style="color: var(--text-dark);">Cabelos</span>
+                            <p class="text-sm" style="color: var(--text-accent);">Cuidados e finalização real</p>
+                            <a href="https://www.instagram.com/reel/DLaw-OQRlAJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);">
+                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
+                            </a>
                         </div>
                     </div>
-                    <!-- Conteúdo Aba Cabelos -->
-                    <div class="tab-pane hidden" id="cabelos">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 justify-items-center">
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/be1.png"><source src="videos/C1.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLaw-OQRlAJ/?igsh=YzFiZXhvdXV5Z2wz" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Cabelos 1</a>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/be2.png"><source src="videos/C2.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLdl6uuRVJ8/?igsh=czcyMHFvb2R2ZGI1" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Cabelos 2</a>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/be3.png"><source src="videos/C3.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLUdRBPRj9X/?igsh=MTFveGV3ZTllejZxbA==" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Cabelos 3</a>
-                            </div>
+                    
+                    <!-- Vídeo 4 - Lifestyle -->
+                    <div class="group">
+                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
+                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/lf2.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="text-center mt-6">
+                            <span class="text-lg font-bold mb-2 block" style="color: var(--text-dark);">Lifestyle</span>
+                            <p class="text-sm" style="color: var(--text-accent);">Organização e estilo de vida</p>
                         </div>
                     </div>
-                    <!-- Conteúdo Aba Lifestyle -->
-                    <div class="tab-pane hidden" id="lifestyle">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 justify-items-center">
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/lf1.jpg"><source src="videos/lf1.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLStx99RQt0/?igsh=Y2JzYXNyZ21peDF3" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Lifestyle 1</a>
-                            </div>
-                            <div class="flex flex-col items-center group">
-                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[10px] rounded-[2.5rem] h-[450px] sm:h-[500px] w-[225px] sm:w-[250px] shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls poster="images/lf2.png"><source src="videos/lf2.mp4" type="video/mp4"></video>
-                                </div>
-                                <a href="https://www.instagram.com/reel/DLLnJzvxBFt/?igsh=cDN2N2cybmN2ZmU0" target="_blank" class="block mt-4 font-semibold" style="color: var(--text-main);">Exemplo Lifestyle 2</a>
-                            </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Fotos UGC -->
+            <section class="reveal py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-sm font-medium mb-2" style="color: var(--text-accent);">Grazy Batista · UGC Creator</h2>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-dark);">Fotos UGC</h1>
+                    <p class="text-sm max-w-2xl mx-auto" style="color: var(--text-main);">Fotografias autênticas que contam histórias reais</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 max-w-xl mx-auto">
+                    <!-- Foto 1 -->
+                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                        <img src="images/ftugc (1).png" alt="Foto UGC 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
+                            <a href="https://www.instagram.com/grazybatistta_/p/DLlLMrkxHCT/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full">
+                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Foto 2 -->
+                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                        <img src="images/ftugc (2).png" alt="Foto UGC 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
+                            <a href="https://www.instagram.com/grazybatistta_/p/DKve0TUxCXk/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full">
+                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Foto 3 -->
+                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                        <img src="images/ftugc (3).png" alt="Foto UGC 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
+                            <a href="https://www.instagram.com/grazybatistta_/p/DLSLM31R7jz/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full">
+                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Foto 4 -->
+                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                        <img src="images/ftugc (4).png" alt="Foto UGC 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
+                            <a href="https://www.instagram.com/grazybatistta_/p/DLpl-HXR_AL/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full">
+                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -373,12 +425,7 @@
                     <h2 class="text-4xl md:text-5xl font-bold">Nichos de Atuação</h2>
                     <p class="mt-3 opacity-90 max-w-2xl mx-auto">Conteúdo autêntico para conectar com a sua audiência.</p>
                 </div>
-                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
-                    <div class="p-6 rounded-2xl backdrop-blur-sm border transform hover:-translate-y-2" style="background-color: var(--card-bg-transparent); border-color: rgba(255,255,255,0.1); transition-property: transform, background-color; transition-duration: 300ms;">
-                        <i class="fas fa-tshirt text-4xl mb-3" style="color: var(--text-dark);"></i>
-                        <h3 class="text-xl font-bold" style="color: var(--text-dark);">Moda e Provador</h3>
-                        <p class="mt-2 text-sm opacity-90" style="color: var(--card-text);">Looks reais, acessíveis e inspiradores.</p>
-                    </div>
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                     <div class="p-6 rounded-2xl backdrop-blur-sm border transform hover:-translate-y-2" style="background-color: var(--card-bg-transparent); border-color: rgba(255,255,255,0.1); transition-property: transform, background-color; transition-duration: 300ms;">
                         <i class="fas fa-baby text-4xl mb-3" style="color: var(--text-dark);"></i>
                         <h3 class="text-xl font-bold" style="color: var(--text-dark);">Maternidade</h3>
