@@ -80,6 +80,9 @@
         .themed-image {
             filter: brightness(var(--image-brightness));
         }
+        .gradient-btn {
+            background-image: linear-gradient(to right, var(--primary), var(--secondary));
+        }
     </style>
 </head>
 <body class="antialiased font-sans">
@@ -105,11 +108,12 @@
             <!-- Seção Sobre Mim -->
             <section class="grid md:grid-cols-2 gap-12 items-center my-16">
                 <div>
+                    <!-- ATENÇÃO: Substitua o 'src' abaixo pelo caminho da sua imagem -->
                     <img src="images/capa2.jpg" alt="Foto de Grazielly Batista" class="rounded-3xl shadow-2xl w-full h-auto object-cover themed-image">
                 </div>
                 <div class="text-center md:text-left">
                     <h2 class="text-4xl font-serif font-bold" style="color: var(--text-dark);">Olá, eu sou a Grazy!</h2>
-                    <p class="mt-4 text-sm leading-relaxed" style="color: var(--text-main);">Sou estudante de Enfermagem, apaixonada por saúde preventiva, estética, autocuidado e bem-estar. Produzo conteúdo autêntico e informativo, sempre com uma linguagem acessível e humanizada, conectando marcas com seu público de forma real e estratégica.</p>
+                    <p class="mt-4 text-lg leading-relaxed" style="color: var(--text-main);">Sou estudante de Enfermagem, apaixonada por saúde preventiva, estética, autocuidado e bem-estar. Produzo conteúdo autêntico e informativo, sempre com uma linguagem acessível e humanizada, conectando marcas com seu público de forma real e estratégica.</p>
                 </div>
             </section>
 
@@ -117,71 +121,81 @@
             <section class="my-20 py-12 rounded-3xl" style="background-image: linear-gradient(to right, var(--primary), var(--secondary));">
                 <div class="text-center mb-12 text-white">
                     <h2 class="text-4xl font-serif font-bold">Minhas Métricas</h2>
-                    <p class="opacity-80">Resultados mais recentes</p>
+                    <p class="opacity-80">Resultados dos últimos 30 dias</p>
                 </div>
                 <!-- Métricas Principais -->
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-white px-6 mb-8">
-                    <div>
-                        <p class="text-4xl font-bold">100.000</p>
-                        <p class="opacity-80">Visualizações</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-center text-white px-6 mb-12">
+                    <div class="flex flex-col items-center justify-center">
+                        <p class="text-4xl lg:text-5xl font-bold">94.9k</p>
+                        <p class="opacity-80 mt-1">Visualizações</p>
                     </div>
-                    <div>
-                        <p class="text-4xl font-bold">15.400</p>
-                        <p class="opacity-80">Contas Alcançadas</p>
+                    <div class="flex flex-col items-center justify-center">
+                        <p class="text-4xl lg:text-5xl font-bold">15.7k</p>
+                        <p class="opacity-80 mt-1">Contas Alcançadas</p>
                     </div>
-                    <div>
-                        <p class="text-4xl font-bold">721</p>
-                        <p class="opacity-80">Contas com Engajamento</p>
+                    <div class="flex flex-col items-center justify-center col-span-2 md:col-span-1 mt-6 md:mt-0">
+                        <p class="text-4xl lg:text-5xl font-bold">2k+</p>
+                        <p class="opacity-80 mt-1">Atividade no Perfil</p>
                     </div>
                 </div>
 
                 <!-- Tabelas de Dados Detalhados -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 px-6">
                     <!-- Visualizações por Tipo de Conteúdo -->
-                    <div class="bg-white/10 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-white mb-4">Visualizações por Tipo de Conteúdo</h3>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center">
-                                <span class="text-white">Stories</span>
-                                <span class="text-white font-bold">48,2%</span>
+                    <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                        <h3 class="text-xl font-bold text-white mb-4">Visualizações por Conteúdo</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-white">Stories</span>
+                                    <span class="text-white font-bold">51,8%</span>
+                                </div>
+                                <div class="w-full bg-white/20 rounded-full h-2.5">
+                                    <div class="bg-white h-2.5 rounded-full" style="width: 51.8%"></div>
+                                </div>
                             </div>
-                            <div class="w-full bg-white/20 rounded-full h-2">
-                                <div class="bg-white h-2 rounded-full" style="width: 48.2%"></div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-white">Reels</span>
+                                    <span class="text-white font-bold">41,4%</span>
+                                </div>
+                                <div class="w-full bg-white/20 rounded-full h-2.5">
+                                    <div class="bg-white h-2.5 rounded-full" style="width: 41.4%"></div>
+                                </div>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-white">Reels</span>
-                                <span class="text-white font-bold">45,2%</span>
-                            </div>
-                            <div class="w-full bg-white/20 rounded-full h-2">
-                                <div class="bg-white h-2 rounded-full" style="width: 45.2%"></div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-white">Posts</span>
-                                <span class="text-white font-bold">6,6%</span>
-                            </div>
-                            <div class="w-full bg-white/20 rounded-full h-2">
-                                <div class="bg-white h-2 rounded-full" style="width: 6.6%"></div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-white">Posts</span>
+                                    <span class="text-white font-bold">6,8%</span>
+                                </div>
+                                <div class="w-full bg-white/20 rounded-full h-2.5">
+                                    <div class="bg-white h-2.5 rounded-full" style="width: 6.8%"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Visualizações por Público -->
-                    <div class="bg-white/10 rounded-2xl p-6">
+                    <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
                         <h3 class="text-xl font-bold text-white mb-4">Visualizações por Público</h3>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center">
-                                <span class="text-white">Seguidores</span>
-                                <span class="text-white font-bold">76,5%</span>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-white">Seguidores</span>
+                                    <span class="text-white font-bold">76,3%</span>
+                                </div>
+                                <div class="w-full bg-white/20 rounded-full h-2.5">
+                                    <div class="bg-white h-2.5 rounded-full" style="width: 76.3%"></div>
+                                </div>
                             </div>
-                            <div class="w-full bg-white/20 rounded-full h-2">
-                                <div class="bg-white h-2 rounded-full" style="width: 76.5%"></div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-white">Não seguidores</span>
-                                <span class="text-white font-bold">23,5%</span>
-                            </div>
-                            <div class="w-full bg-white/20 rounded-full h-2">
-                                <div class="bg-white h-2 rounded-full" style="width: 23.5%"></div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-white">Não seguidores</span>
+                                    <span class="text-white font-bold">23,7%</span>
+                                </div>
+                                <div class="w-full bg-white/20 rounded-full h-2.5">
+                                    <div class="bg-white h-2.5 rounded-full" style="width: 23.7%"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -189,224 +203,226 @@
             </section>
 
             <!-- Seção Público -->
-            <section class="my-20 p-8 rounded-3xl" style="background-color: var(--card-bg);">
+            <section class="my-20 p-6 sm:p-8 rounded-3xl" style="background-color: var(--card-bg);">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl font-serif font-bold" style="color: var(--text-dark);">Quem me acompanha</h2>
                 </div>
                 <div class="grid grid-cols-1 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-serif font-bold text-center mb-4" style="color: var(--text-dark);">Localização (Estado)</h3>
+                    <!-- CORREÇÃO: Adicionado container com altura definida para o gráfico de barras -->
+                    <div class="relative h-80 md:h-96">
+                        <h3 class="text-2xl font-serif font-bold text-center mb-4" style="color: var(--text-dark);">Localização (Principais Estados)</h3>
                         <canvas id="localizacaoChart"></canvas>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-12 items-center mt-12">
-                        <div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center mt-8 md:mt-12">
+                        <div class="relative h-80">
                             <h3 class="text-2xl font-serif font-bold text-center mb-4" style="color: var(--text-dark);">Gênero</h3>
                             <canvas id="generoChart"></canvas>
                         </div>
-                        <div>
+                        <div class="relative h-80">
                             <h3 class="text-2xl font-serif font-bold text-center mb-4" style="color: var(--text-dark);">Faixa Etária</h3>
                             <canvas id="faixaEtariaChart"></canvas>
-                        </div>
-                    </div>
-                    
-                    <!-- Horários Mais Ativos -->
-                    <div class="mt-12">
-                        <h3 class="text-2xl font-serif font-bold text-center mb-6" style="color: var(--text-dark);">Horários Mais Ativos</h3>
-                        <div class="bg-white/50 rounded-2xl p-6">
-                            <p class="text-center mb-4 text-sm" style="color: var(--text-main);">Maior engajamento entre 9h e 18h, com picos às 15h e 18h</p>
-                            <div class="grid grid-cols-8 gap-2 text-center">
-                                <div class="text-xs" style="color: var(--text-accent);">0h</div>
-                                <div class="text-xs" style="color: var(--text-accent);">3h</div>
-                                <div class="text-xs" style="color: var(--text-accent);">6h</div>
-                                <div class="text-xs" style="color: var(--text-accent);">9h</div>
-                                <div class="text-xs" style="color: var(--text-accent);">12h</div>
-                                <div class="text-xs" style="color: var(--text-accent);">15h</div>
-                                <div class="text-xs" style="color: var(--text-accent);">18h</div>
-                                <div class="text-xs" style="color: var(--text-accent);">21h</div>
-                            </div>
-                            <div class="grid grid-cols-8 gap-2 mt-2">
-                                <div class="h-8 bg-gray-300" style="background-color: var(--primary); opacity: 0.3;"></div>
-                                <div class="h-8 bg-gray-300" style="background-color: var(--primary); opacity: 0.3;"></div>
-                                <div class="h-12 bg-gray-300" style="background-color: var(--primary); opacity: 0.6;"></div>
-                                <div class="h-16 bg-gray-300" style="background-color: var(--primary); opacity: 0.8;"></div>
-                                <div class="h-14 bg-gray-300" style="background-color: var(--primary); opacity: 0.7;"></div>
-                                <div class="h-20 bg-gray-300" style="background-color: var(--primary); opacity: 1;"></div>
-                                <div class="h-20 bg-gray-300" style="background-color: var(--primary); opacity: 1;"></div>
-                                <div class="h-12 bg-gray-300" style="background-color: var(--primary); opacity: 0.6;"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Seção Planos e Preços -->
-            <section class="my-20 py-12 rounded-3xl" style="background-color: var(--card-bg);">
+            <section class="my-20">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl font-serif font-bold" style="color: var(--text-dark);">Planos e Valores</h2>
-                    <p class="opacity-80 mt-2 text-sm" style="color: var(--text-accent);">Escolha o pacote ideal para sua marca</p>
+                    <p class="mt-2 text-lg" style="color: var(--text-accent);">Escolha o pacote ideal para sua marca</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
-                    <!-- Starter -->
-                    <div class="flex flex-col items-center p-8 rounded-2xl shadow-lg border border-gray-200" style="background-color: var(--card-bg-transparent);">
-                        <h3 class="text-2xl font-serif font-bold mb-2" style="color: var(--primary);">Starter</h3>
-                        <p class="text-3xl font-extrabold mb-4" style="color: var(--text-dark);">R$ 90</p>
-                        <ul class="text-sm mb-6 space-y-2 font-sans" style="color: var(--text-main);">
-                            <li><b>1 vídeo UGC (até 30s):</b> Vídeo curto, objetivo e autêntico para redes sociais.</li>
-                            <li><b>1 foto:</b> Imagem profissional para divulgação ou post.</li>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Plano -->
+                    <div class="flex flex-col p-8 rounded-3xl shadow-lg border" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                        <h3 class="text-2xl font-serif font-bold mb-2 text-center" style="color: var(--primary);">Starter</h3>
+                        <p class="text-4xl font-extrabold mb-6 text-center" style="color: var(--text-dark);">R$ 90</p>
+                        <ul class="text-sm space-y-3 font-sans flex-grow" style="color: var(--text-main);">
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>1 vídeo UGC (até 30s):</b> Vídeo curto, objetivo e autêntico.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>1 foto:</b> Imagem profissional para divulgação.</span></li>
                         </ul>
                     </div>
-                    <!-- Essencial -->
-                    <div class="flex flex-col items-center p-8 rounded-2xl shadow-lg border border-gray-200" style="background-color: var(--card-bg-transparent);">
-                        <h3 class="text-2xl font-serif font-bold mb-2" style="color: var(--primary);">Essencial</h3>
-                        <p class="text-3xl font-extrabold mb-4" style="color: var(--text-dark);">R$ 200</p>
-                        <ul class="text-sm mb-6 space-y-2 font-sans" style="color: var(--text-main);">
-                            <li><b>2 vídeos (até 60s cada):</b> Conteúdos mais completos, ideais para reels, anúncios ou reviews.</li>
-                            <li><b>3 fotos:</b> Diversidade de imagens para diferentes postagens.</li>
+                     <!-- Plano -->
+                    <div class="flex flex-col p-8 rounded-3xl shadow-lg border" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                        <h3 class="text-2xl font-serif font-bold mb-2 text-center" style="color: var(--primary);">Essencial</h3>
+                        <p class="text-4xl font-extrabold mb-6 text-center" style="color: var(--text-dark);">R$ 200</p>
+                        <ul class="text-sm space-y-3 font-sans flex-grow" style="color: var(--text-main);">
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>2 vídeos (até 60s cada):</b> Conteúdos completos para reels ou reviews.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>3 fotos:</b> Diversidade para diferentes postagens.</span></li>
                         </ul>
                     </div>
-                    <!-- Profissional -->
-                    <div class="flex flex-col items-center p-8 rounded-2xl shadow-lg border border-gray-200" style="background-color: var(--card-bg-transparent);">
-                        <h3 class="text-2xl font-serif font-bold mb-2" style="color: var(--primary);">Profissional</h3>
-                        <p class="text-3xl font-extrabold mb-4" style="color: var(--text-dark);">R$ 350</p>
-                        <ul class="text-sm mb-6 space-y-2 font-sans" style="color: var(--text-main);">
-                            <li><b>3 vídeos (até 60s cada):</b> Conteúdo variado para diferentes objetivos.</li>
-                            <li><b>5 fotos:</b> Mais opções para alimentar o feed e anúncios.</li>
-                            <li><b>1 variação de roteiro:</b> Teste de ângulos diferentes para o mesmo produto.</li>
+                     <!-- Plano -->
+                    <div class="flex flex-col p-8 rounded-3xl shadow-lg border transform scale-105" style="background-color: var(--card-bg); border-color: var(--primary);">
+                        <h3 class="text-2xl font-serif font-bold mb-2 text-center" style="color: var(--primary);">Profissional</h3>
+                        <p class="text-4xl font-extrabold mb-6 text-center" style="color: var(--text-dark);">R$ 350</p>
+                        <ul class="text-sm space-y-3 font-sans flex-grow" style="color: var(--text-main);">
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>3 vídeos (até 60s cada):</b> Conteúdo variado para diferentes objetivos.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>5 fotos:</b> Mais opções para feed e anúncios.</span></li>
+                             <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>1 variação de roteiro:</b> Teste de ângulos diferentes.</span></li>
                         </ul>
                     </div>
-                    <!-- Premium -->
-                    <div class="flex flex-col items-center p-8 rounded-2xl shadow-lg border border-gray-200" style="background-color: var(--card-bg-transparent);">
-                        <h3 class="text-2xl font-serif font-bold mb-2" style="color: var(--primary);">Premium</h3>
-                        <p class="text-3xl font-extrabold mb-4" style="color: var(--text-dark);">R$ 500</p>
-                        <ul class="text-sm mb-6 space-y-2 font-sans" style="color: var(--text-main);">
-                            <li><b>5 vídeos (até 60s):</b> Diversos formatos para diferentes plataformas.</li>
-                            <li><b>8 fotos:</b> Amplo leque de imagens para campanhas e redes.</li>
-                            <li><b>2 variações de roteiro:</b> Testes criativos para aumentar conversão.</li>
-                            <li><b>1 vídeo bônus vertical ou unboxing:</b> Conteúdo extra para engajar ainda mais.</li>
+                     <!-- Plano -->
+                    <div class="flex flex-col p-8 rounded-3xl shadow-lg border" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                        <h3 class="text-2xl font-serif font-bold mb-2 text-center" style="color: var(--primary);">Premium</h3>
+                        <p class="text-4xl font-extrabold mb-6 text-center" style="color: var(--text-dark);">R$ 500</p>
+                        <ul class="text-sm space-y-3 font-sans flex-grow" style="color: var(--text-main);">
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>5 vídeos (até 60s):</b> Diversos formatos para plataformas.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>8 fotos:</b> Amplo leque de imagens para campanhas.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>2 variações de roteiro:</b> Testes para aumentar conversão.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-2 mt-1" style="color: var(--primary);"></i><span><b>1 vídeo bônus:</b> Vertical ou unboxing.</span></li>
                         </ul>
                     </div>
                 </div>
             </section>
+            
              <!-- Seção: Contato -->
             <section id="contato" class="py-20 text-center">
-                 <h2 class="text-5xl font-bold" style="color: var(--text-dark);">Deu Match?</h2>
+                 <h2 class="text-5xl font-bold font-serif" style="color: var(--text-dark);">Deu Match?</h2>
                  <p class="text-lg mt-3 max-w-xl mx-auto" style="color: var(--text-accent);">Vamos juntos promover a sua marca!</p>
-                 <div class="mt-10">
-                    <a href="https://wa.me/5599984491302" target="_blank" class="gradient-btn inline-block text-white font-bold py-4 px-12 rounded-full text-lg shadow-lg transition-transform hover:scale-105">
-                        <i class="fab fa-whatsapp mr-3"></i> (99) 98449-1302
-                    </a>
+                 <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                     <a href="https://wa.me/5599984491302" target="_blank" class="gradient-btn inline-flex items-center justify-center text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg transition-transform hover:scale-105 w-full sm:w-auto">
+                         <i class="fab fa-whatsapp mr-3"></i> Falar no WhatsApp
+                     </a>
+                     <a href="https://www.instagram.com/grazybatistta_/" target="_blank" class="inline-flex items-center justify-center font-bold py-4 px-10 rounded-full text-lg shadow-lg transition-transform hover:scale-105 w-full sm:w-auto" style="color: var(--text-dark); background-color: var(--card-bg); border: 1px solid var(--border-color);">
+                         <i class="fab fa-instagram mr-3"></i> @grazybatistta_
+                     </a>
                  </div>
-                 <p class="mt-6 text-lg" style="color: var(--text-accent);">ou</p>
-                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=graziellybatistta17@gmail.com" class="mt-2 text-lg font-semibold hover:underline" style="color: var(--text-dark);">@grazybatistta_</a>
             </section>
         </main>
-          <!-- Footer -->
-          <footer class="text-center py-8 mt-10 border-t" style="border-color: var(--border-color);">
+         <!-- Footer -->
+        <footer class="text-center py-8 mt-10 border-t" style="border-color: var(--border-color);">
             <p style="color: var(--text-accent);">&copy; <span id="year-footer"></span> Grazy Batista. Todos os direitos reservados.</p>
         </footer>
     </div>
 
     <script>
+        // Variáveis para armazenar as instâncias dos gráficos
         let localizacaoChartInstance = null;
         let faixaEtariaChartInstance = null;
         let generoChartInstance = null;
 
+        // Função para obter as cores do tema atual
         function getThemeColors() {
             const style = getComputedStyle(document.body);
             return {
-                gridColor: style.getPropertyValue('--chart-grid-color') || 'rgba(0,0,0,0.1)',
-                chartTextColor: style.getPropertyValue('--chart-text-color') || '#666',
+                gridColor: style.getPropertyValue('--chart-grid-color').trim(),
+                chartTextColor: style.getPropertyValue('--chart-text-color').trim(),
                 pieColors: [
-                    style.getPropertyValue('--primary'),
-                    style.getPropertyValue('--secondary'),
-                    style.getPropertyValue('--text-accent'),
+                    style.getPropertyValue('--primary').trim(),
+                    style.getPropertyValue('--secondary').trim(),
+                    style.getPropertyValue('--text-accent').trim(),
                     '#6B5B4D',
                 ],
-                barColor: style.getPropertyValue('--primary')
+                barColor: style.getPropertyValue('--primary').trim()
             };
         }
 
-        function initCharts() {
+        // Função principal para criar ou recriar os gráficos
+        function createCharts() {
+            // Destroi instâncias de gráficos existentes para evitar sobreposição e vazamentos de memória
             if (localizacaoChartInstance) localizacaoChartInstance.destroy();
             if (faixaEtariaChartInstance) faixaEtariaChartInstance.destroy();
             if (generoChartInstance) generoChartInstance.destroy();
             
             const colors = getThemeColors();
             Chart.defaults.color = colors.chartTextColor;
+            Chart.defaults.font.family = "'Poppins', sans-serif";
 
-            // Gráfico de Localização
-            localizacaoChartInstance = new Chart(document.getElementById('localizacaoChart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Ceará', 'Maranhão', 'São Paulo', 'Goiás', 'Piauí'],
-                    datasets: [{
-                        label: 'Público por Estado',
-                        data: [70.63, 15.29, 4.54, 2.04, 1.21],
-                        backgroundColor: colors.barColor,
-                        borderRadius: 5,
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    scales: {
-                        x: { beginAtZero: true, grid: { color: colors.gridColor } },
-                        y: { grid: { color: colors.gridColor } }
+            // Opções comuns para os gráficos de pizza/rosca
+            const pieAndDoughnutOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: colors.chartTextColor,
+                            padding: 20,
+                            font: { size: 12 }
+                        }
+                    }
+                }
+            };
+
+            // Gráfico de Localização (Barras Horizontais)
+            const localizacaoCtx = document.getElementById('localizacaoChart')?.getContext('2d');
+            if (localizacaoCtx) {
+                localizacaoChartInstance = new Chart(localizacaoCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Ceará', 'Maranhão', 'São Paulo', 'Goiás', 'Piauí'],
+                        datasets: [{
+                            label: 'Público por Estado (%)',
+                            data: [70.63, 15.29, 4.54, 2.04, 1.21],
+                            backgroundColor: colors.barColor,
+                            borderRadius: 5,
+                            borderWidth: 0,
+                        }]
                     },
-                    plugins: { legend: { display: false } }
-                }
-            });
-
-            // Gráfico de Gênero
-            generoChartInstance = new Chart(document.getElementById('generoChart'), {
-                type: 'pie',
-                data: {
-                    labels: ['Feminino', 'Masculino'],
-                    datasets: [{
-                        label: 'Gênero',
-                        data: [71.3, 28.7],
-                        backgroundColor: [colors.pieColors[0], colors.pieColors[1]],
-                        hoverOffset: 8,
-                        borderColor: getComputedStyle(document.body).getPropertyValue('--card-bg'),
-                        borderWidth: 2,
-                    }]
-                },
-                 options: {
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: colors.chartTextColor
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { 
+                                beginAtZero: true, 
+                                grid: { color: colors.gridColor, drawBorder: false },
+                                ticks: { color: colors.chartTextColor }
+                            },
+                            y: { 
+                                grid: { display: false },
+                                ticks: { color: colors.chartTextColor }
+                            }
+                        },
+                        plugins: { 
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: (context) => `${context.dataset.label}: ${context.raw}%`
+                                }
                             }
                         }
                     }
-                }
-            });
+                });
+            }
 
-            // Gráfico de Faixa Etária
-            faixaEtariaChartInstance = new Chart(document.getElementById('faixaEtariaChart'), {
-                type: 'pie',
-                data: {
-                    labels: ['18-24 anos', '25-34 anos', '35-44 anos', '45-54 anos'],
-                    datasets: [{
-                        label: 'Faixa Etária',
-                        data: [11.6, 52.6, 27.4, 8.4],
-                        backgroundColor: colors.pieColors,
-                        hoverOffset: 8,
-                        borderColor: getComputedStyle(document.body).getPropertyValue('--card-bg'),
-                        borderWidth: 2,
-                    }]
-                },
-                 options: {
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: colors.chartTextColor
-                            }
-                        }
-                    }
-                }
-            });
+            // Gráfico de Gênero (Pizza)
+            const generoCtx = document.getElementById('generoChart')?.getContext('2d');
+            if (generoCtx) {
+                generoChartInstance = new Chart(generoCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Feminino', 'Masculino'],
+                        datasets: [{
+                            data: [71.3, 28.7],
+                            backgroundColor: [colors.pieColors[0], colors.pieColors[1]],
+                            hoverOffset: 8,
+                            borderColor: getComputedStyle(document.body).getPropertyValue('--card-bg').trim(),
+                            borderWidth: 4,
+                        }]
+                    },
+                    options: pieAndDoughnutOptions
+                });
+            }
+
+            // Gráfico de Faixa Etária (Rosca)
+            const faixaEtariaCtx = document.getElementById('faixaEtariaChart')?.getContext('2d');
+            if(faixaEtariaCtx) {
+                faixaEtariaChartInstance = new Chart(faixaEtariaCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['18-24 anos', '25-34 anos', '35-44 anos', '45-54 anos'],
+                        datasets: [{
+                            data: [11.6, 52.6, 27.4, 8.4],
+                            backgroundColor: colors.pieColors,
+                            hoverOffset: 8,
+                            borderColor: getComputedStyle(document.body).getPropertyValue('--card-bg').trim(),
+                            borderWidth: 4,
+                        }]
+                    },
+                    options: pieAndDoughnutOptions
+                });
+            }
         }
 
         // LÓGICA PARA O SELETOR DE TEMA
@@ -419,8 +435,9 @@
             themeIcon.classList.toggle('fa-sun', theme === 'dark');
             themeIcon.classList.toggle('fa-moon', theme === 'light');
             localStorage.setItem('theme', theme);
-            // Re-renderiza os gráficos com as novas cores
-            initCharts();
+            // Um pequeno atraso garante que as variáveis CSS do novo tema sejam aplicadas
+            // antes de redesenhar os gráficos, evitando que usem as cores do tema antigo.
+            setTimeout(createCharts, 100);
         };
 
         themeToggleBtn.addEventListener('click', () => {
@@ -428,9 +445,10 @@
             applyTheme(newTheme);
         });
 
-        // Aplica o tema salvo e inicializa os gráficos
+        // Define o ano no rodapé e inicializa tudo quando o documento estiver pronto
         document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.getElementById('year-footer').textContent = new Date().getFullYear();
+            const savedTheme = localStorage.getItem('theme') || 'light'; // 'light' como tema padrão
             applyTheme(savedTheme);
         });
     </script>
