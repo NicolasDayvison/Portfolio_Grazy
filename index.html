@@ -35,6 +35,7 @@
             --tab-active-text: #FFFFFF;
             --tab-inactive-text: var(--text-main);
             --image-brightness: 100%;
+            --menu-link-hover-bg: #f0eaf3;
         }
 
         body[data-theme='dark'] {
@@ -59,6 +60,7 @@
             --tab-active-text: #FFFFFF;
             --tab-inactive-text: var(--text-main);
             --image-brightness: 85%;
+            --menu-link-hover-bg: #4a423b;
         }
         /* --- FIM DAS VARIÁVEIS DE COR --- */
 
@@ -66,7 +68,7 @@
         .font-sans { font-family: 'Poppins', sans-serif; }
         html { scroll-behavior: smooth; }
         
-        body, h1, h2, h3, p, a, i, footer, section, button, div, img {
+        body, h1, h2, h3, p, a, i, footer, section, button, div, img, video {
             transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, filter 0.5s ease;
         }
 
@@ -76,18 +78,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ANIMAÇÕES DAS FORMAS NO CABEÇALHO (CORRIGIDO) */
-        @keyframes blob-1 {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(20px) translateY(-30px); }
-        }
-
-        @keyframes blob-2 {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(-20px) translateY(30px); }
-        }
-
-        /* Gradiente animado de fundo para todo o body */
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(45deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3));
@@ -97,22 +87,6 @@
             overflow-x: hidden;
         }
 
-        /* Degradês suaves para cada seção */
-        .section-gradient-1 {
-            background: linear-gradient(135deg, var(--bg-color-1) 0%, var(--bg-color-2) 50%, var(--bg-color-3) 100%);
-        }
-        
-        .section-gradient-2 {
-            background: linear-gradient(135deg, var(--bg-color-2) 0%, var(--bg-color-3) 50%, var(--primary) 100%);
-        }
-        
-        .section-gradient-3 {
-            background: linear-gradient(135deg, var(--bg-color-3) 0%, var(--primary) 50%, var(--secondary) 100%);
-        }
-        
-        .section-gradient-4 {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--bg-color-1) 100%);
-        }
         .gradient-btn {
             background-image: linear-gradient(to right, var(--primary), var(--secondary));
             transition: all 0.4s ease;
@@ -127,7 +101,7 @@
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.6s ease-out, color 0.5s ease, background-color 0.5s ease;
+            transition: opacity 0.8s ease-out, transform 0.6s ease-out;
         }
         .reveal.visible {
             opacity: 1;
@@ -150,14 +124,11 @@
         #menu-icon {
             transition: transform 0.3s ease-in-out, color 0.5s ease;
         }
-        #menu-btn {
-            transition: transform 0.2s ease, background-color 0.5s ease;
-        }
         #menu-btn.open #menu-icon {
             transform: rotate(180deg);
         }
         .profile-image-shadow {
-             filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.25));
+            filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.25));
         }
         .themed-image {
             filter: brightness(var(--image-brightness));
@@ -172,6 +143,9 @@
             color: var(--tab-active-text);
             box-shadow: 0 4px 10px -2px rgba(0,0,0,0.1);
         }
+        .menu-link:hover {
+            background-color: var(--menu-link-hover-bg);
+        }
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -182,7 +156,7 @@
 <body class="antialiased font-sans">
 
     <!-- Controles do Topo (Menu e Tema) -->
-    <div class="fixed top-6 left-6 z-[60] flex items-center gap-3">
+    <div class="fixed top-4 left-4 md:top-6 md:left-6 z-[60] flex items-center gap-3">
         <button id="menu-btn" class="h-12 w-12 rounded-full flex items-center justify-center transition-transform hover:scale-110" style="background-color: var(--menu-bg); backdrop-filter: blur(4px); box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
             <i id="menu-icon" class="fas fa-bars text-xl" style="color: var(--text-dark);"></i>
         </button>
@@ -192,7 +166,7 @@
     </div>
     
     <!-- Botão Mídia Kit -->
-    <a href="midia-kit.html" class="fixed top-6 right-6 z-[60] h-12 px-6 rounded-full flex items-center justify-center transition-transform hover:scale-105 gradient-btn text-white font-semibold shadow-lg">
+    <a href="midia-kit.html" class="fixed top-4 right-4 md:top-6 md:right-6 z-[60] h-12 px-6 rounded-full flex items-center justify-center transition-transform hover:scale-105 gradient-btn text-white font-semibold shadow-lg">
         Mídia Kit
     </a>
 
@@ -202,11 +176,12 @@
     <!-- Painel do Menu Lateral -->
     <div id="side-menu" class="fixed top-0 left-0 h-full w-72 z-50 shadow-2xl" style="background-color: var(--card-bg);">
         <div class="p-6 flex flex-col h-full">
-            <a href="#" class="menu-link text-2xl font-bold mb-6 text-center" style="color: var(--text-dark);"></a>
             <nav class="mt-6 flex-grow">
-                <a href="#portfolio" class="menu-link block text-lg py-4 px-4 rounded-lg" style="color: var(--text-main);"><i class="fas fa-camera-retro w-6 mr-2"></i>Portfólio</a>
-                <a href="#nichos" class="menu-link block text-lg py-4 px-4 rounded-lg" style="color: var(--text-main);"><i class="fas fa-star w-6 mr-2"></i>Nichos</a>
-                <a href="#contato" class="menu-link block text-lg py-4 px-4 rounded-lg" style="color: var(--text-main);"><i class="fas fa-paper-plane w-6 mr-2"></i>Contato</a>
+                <a href="#home" class="menu-link block text-lg py-4 px-4 rounded-lg transition-colors duration-300" style="color: var(--text-main);"><i class="fas fa-home w-6 mr-2"></i>Início</a>
+                <a href="#marcas" class="menu-link block text-lg py-4 px-4 rounded-lg transition-colors duration-300" style="color: var(--text-main);"><i class="fas fa-briefcase w-6 mr-2"></i>Marcas</a>
+                <a href="#portfolio" class="menu-link block text-lg py-4 px-4 rounded-lg transition-colors duration-300" style="color: var(--text-main);"><i class="fas fa-camera-retro w-6 mr-2"></i>Portfólio</a>
+                <a href="#nichos" class="menu-link block text-lg py-4 px-4 rounded-lg transition-colors duration-300" style="color: var(--text-main);"><i class="fas fa-star w-6 mr-2"></i>Nichos</a>
+                <a href="#contato" class="menu-link block text-lg py-4 px-4 rounded-lg transition-colors duration-300" style="color: var(--text-main);"><i class="fas fa-paper-plane w-6 mr-2"></i>Contato</a>
             </nav>
             <div class="text-center text-sm" style="color: var(--text-accent);">
                 <p>&copy; <span id="year-menu"></span> Grazy Batista</p>
@@ -215,32 +190,30 @@
     </div>
 
     <!-- Container Principal -->
-    <div class="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
 
         <!-- Header / Seção Hero -->
-        <header id="home" class="relative min-h-screen flex items-center overflow-hidden w-full">
-            <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full h-full">
+        <header id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden w-full">
+            <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
                 <!-- Coluna de Texto -->
-                <div class="text-center lg:text-left z-10 flex flex-col justify-center h-full">
+                <div class="text-center lg:text-left z-10">
                     <h1 class="text-5xl lg:text-7xl font-bold" style="color: var(--text-dark);">Grazy Batista</h1>
                     <p class="text-xl lg:text-2xl font-medium mt-3" style="color: var(--text-accent);">Criadora de Conteúdo UGC</p>
-                    <p class="max-w-xl mx-auto lg:mx-0 mt-6 text-sm lg:text-base leading-relaxed" style="color: var(--text-main);">Sou criadora de conteúdo, mãe de gêmeos, com foco em maternidade, beleza real, lifestyle e bem-estar feminino. Produzo vídeos e conteúdos autênticos que traduzem minha rotina com leveza, verdade e conexão genuína com o público.<br><br>Meu propósito é inspirar mulheres reais, mostrando que é possível se cuidar e se sentir bem com simplicidade e identidade. Sou estudante de Enfermagem, o que me dá ainda mais sensibilidade para criar conteúdos com empatia, propósito e autoridade.</p>
+                    <p class="max-w-xl mx-auto lg:mx-0 mt-6 text-base lg:text-lg leading-relaxed" style="color: var(--text-main);">Sou criadora de conteúdo, mãe de gêmeos, com foco em maternidade, beleza real, lifestyle e bem-estar feminino. Produzo vídeos e conteúdos autênticos que traduzem minha rotina com leveza, verdade e conexão genuína com o público.<br><br>Meu propósito é inspirar mulheres reais, mostrando que é possível se cuidar e se sentir bem com simplicidade e identidade. Sou estudante de Enfermagem, o que me dá ainda mais sensibilidade para criar conteúdos com empatia, propósito e autoridade.</p>
                     <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
                         <a href="#contato" class="gradient-btn text-white font-bold py-3 px-10 rounded-full shadow-lg w-full sm:w-auto">Vamos conversar!</a>
                         <a href="#portfolio" class="btn font-bold py-3 px-10 rounded-full shadow-lg w-full sm:w-auto" style="background-color: var(--btn-secondary-bg); color: var(--btn-secondary-text);">Ver Portfólio</a>
                     </div>
                 </div>
                 <!-- Coluna da Imagem -->
-                <div class="relative flex justify-center items-center h-full w-full">
-                    <!-- Efeito de halo centralizado atrás da imagem -->
+                <div class="relative flex justify-center items-center h-full w-full mt-12 lg:mt-0">
                     <div class="absolute inset-0 flex justify-center items-center">
-                        <div class="rounded-full opacity-50"
-                             style="width: 50%; height: 50%; background: radial-gradient(circle, var(--primary) 0%, var(--secondary) 100%); filter: blur(80px);"></div>
+                        <div class="rounded-full opacity-50" style="width: 70%; height: 70%; background: radial-gradient(circle, var(--primary) 0%, transparent 70%); filter: blur(100px);"></div>
                     </div>
                     <img src="images/capa.png"
                          alt="Foto de Grazielly Batista"
-                         class="relative z-10 w-full h-auto max-w-xl md:max-w-2xl profile-image-shadow themed-image"
-                         style="mask-image: linear-gradient(to top, transparent 0%, black 30%, black 100%); -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%, black 100%);"
+                         class="relative z-10 w-full h-auto max-w-md lg:max-w-lg profile-image-shadow themed-image"
+                         style="mask-image: linear-gradient(to top, transparent 5%, black 40%); -webkit-mask-image: linear-gradient(to top, transparent 5%, black 40%);"
                          onerror="this.onerror=null;this.src='https://placehold.co/600x900/E8A0BF/FFFFFF?text=GB';">
                 </div>
             </div>
@@ -248,26 +221,22 @@
 
         <main>
             <!-- Seção: Marcas que já trabalhei -->
-            <section class="reveal py-16">
+            <section id="marcas" class="reveal py-16">
                 <div class="text-center mb-12">
                     <h2 class="text-sm font-medium mb-2" style="color: var(--text-accent);">Grazy Batista · UGC Creator</h2>
                     <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-dark);">Marcas que já trabalhei</h1>
-                    <p class="text-sm max-w-2xl mx-auto" style="color: var(--text-main);">Parcerias autênticas com marcas que confiam no meu trabalho</p>
+                    <p class="text-base max-w-2xl mx-auto" style="color: var(--text-main);">Parcerias autênticas com marcas que confiam no meu trabalho</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
                     <!-- Marca 1 -->
-                    <div class="group">
-                        <div class="mb-4 flex justify-center">
-                            <div class="w-20 h-20 rounded-full shadow-md flex items-center justify-center border-2 border-gray-200 overflow-hidden">
-                                <img src="images/Marca1.jpg" alt="Logo Marca 1" class="w-full h-full object-cover">
-                            </div>
+                    <div class="group flex flex-col items-center">
+                        <div class="mb-4">
+                            <img src="images/Marca1.jpg" alt="Logo Marca 1" class="w-20 h-20 rounded-full shadow-md object-cover border-2" style="border-color: var(--border-color);">
                         </div>
-                        <div class="text-center mb-6">
-                            <h3 class="text-lg font-medium" style="color: var(--text-dark);">Bitencourt Performance</h3>
-                        </div>
+                        <h3 class="text-lg font-medium text-center mb-4" style="color: var(--text-dark);">Bitencourt Performance</h3>
                         <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[500px] w-[250px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
-                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/marca1.mp4" type="video/mp4"></video>
+                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls loop muted playsinline><source src="videos/marca1.mp4" type="video/mp4"></video>
                         </div>
                         <div class="text-center mt-6">
                             <p class="text-sm">Performance atlética e produtos para musculação</p>
@@ -277,185 +246,173 @@
                         </div>
                     </div>
                     <!-- Marca 2 -->
-                    <div class="group">
-                        <div class="mb-4 flex justify-center">
-                            <div class="w-20 h-20 rounded-full shadow-md flex items-center justify-center border-2 border-gray-200 overflow-hidden">
-                                <img src="images/Marca2.png" alt="Logo Marca 2" class="w-full h-full object-cover">
-                            </div>
+                    <div class="group flex flex-col items-center">
+                        <div class="mb-4">
+                            <img src="images/Marca2.png" alt="Logo Marca 2" class="w-20 h-20 rounded-full shadow-md object-cover border-2" style="border-color: var(--border-color);">
                         </div>
-                        <div class="text-center mb-6">
-                            <h3 class="text-lg font-medium" style="color: var(--text-dark);">Skence</h3>
-                        </div>
+                        <h3 class="text-lg font-medium text-center mb-4" style="color: var(--text-dark);">Skence</h3>
                         <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[500px] w-[250px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
-                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/marca2.mp4" type="video/mp4"></video>
+                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls loop muted playsinline><source src="videos/marca2.mp4" type="video/mp4"></video>
                         </div>
                         <div class="text-center mt-6">
-                            <p class="text-sm" style="color: var(--text-accent);">Cosméticos e produtos de beleza</p>
+                            <p class="text-sm">Cosméticos e produtos de beleza</p>
                             <a href="https://www.instagram.com/reel/DMK2MgNxeGO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);">
                                 <i class="fab fa-instagram mr-1"></i>Ver no Instagram
                             </a>
                         </div>
                     </div>
-                    <!-- Marca 3 - Solara Vida -->
-                    <div class="group">
-                        <div class="mb-4 flex justify-center">
-                            <div class="w-20 h-20 rounded-full shadow-md flex items-center justify-center border-2 border-gray-200 overflow-hidden">
-                                <img src="images/marca3.jpg" alt="Logo Solara Vida" class="w-full h-full object-cover">
-                            </div>
+                    <!-- Marca 3 -->
+                    <div class="group flex flex-col items-center">
+                        <div class="mb-4">
+                            <img src="images/marca3.jpg" alt="Logo Solara Vida" class="w-20 h-20 rounded-full shadow-md object-cover border-2" style="border-color: var(--border-color);">
                         </div>
-                        <div class="text-center mb-6">
-                            <h3 class="text-lg font-medium" style="color: var(--text-dark);">Solara Vida</h3>
-                        </div>
+                        <h3 class="text-lg font-medium text-center mb-4" style="color: var(--text-dark);">Solara Vida</h3>
                         <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[500px] w-[250px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
-                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/marca3.mp4" type="video/mp4"></video>
+                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls loop muted playsinline><source src="videos/marca3.mp4" type="video/mp4"></video>
                         </div>
                         <div class="text-center mt-6">
                             <p class="text-sm">Vitaminas e suplementos para o seu bem-estar</p>
-                            <!-- Adicione o link do Instagram se houver -->
                         </div>
                     </div>
-                    <!-- Marca 4 - Bella Essence -->
-                    <div class="group">
-                        <div class="mb-4 flex justify-center">
-                            <div class="w-20 h-20 rounded-full shadow-md flex items-center justify-center border-2 border-gray-200 overflow-hidden">
-                                <img src="images/marca4.jpg" alt="Logo Bella Essence" class="w-full h-full object-cover">
-                            </div>
+                    <!-- Marca 4 -->
+                    <div class="group flex flex-col items-center">
+                        <div class="mb-4">
+                            <img src="images/marca4.jpg" alt="Logo Bella Essence" class="w-20 h-20 rounded-full shadow-md object-cover border-2" style="border-color: var(--border-color);">
                         </div>
-                        <div class="text-center mb-6">
-                            <h3 class="text-lg font-medium" style="color: var(--text-dark);">Bella Essence</h3>
-                        </div>
+                        <h3 class="text-lg font-medium text-center mb-4" style="color: var(--text-dark);">Bella Essence</h3>
                         <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[500px] w-[250px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl flex items-center justify-center">
                             <img src="images/foto marca 4.jpg" alt="Bella Essence" class="w-full h-full object-cover rounded-[2rem] themed-image" />
                         </div>
                         <div class="text-center mt-6">
                             <p class="text-sm">Suplementos para saúde e beleza</p>
-                            <!-- Adicione o link do Instagram se houver -->
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Seção: Exemplo de vídeos UGC -->
-            <section class="reveal py-16">
+            <!-- Seção: Portfólio (Vídeos e Fotos) -->
+            <section id="portfolio" class="reveal py-16">
                 <div class="text-center mb-12">
-                    <h2 class="text-sm font-medium mb-2" style="color: var(--text-accent);">Grazy Batista · UGC Creator</h2>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-dark);">Exemplo de vídeos UGC</h1>
-                    <p class="text-sm max-w-2xl mx-auto" style="color: var(--text-main);">Conteúdo autêntico e profissional para conectar sua marca com o público</p>
-                            </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                    <!-- Vídeo 1 - Maternidade -->
-                    <div class="group">
-                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
-                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/maternidade.mp4" type="video/mp4"></video>
-                                </div>
-                        <div class="text-center mt-6">
-                            <span class="text-lg font-bold mb-2 block" style="color: var(--text-dark);">Maternidade</span>
-                            <p class="text-sm" style="color: var(--text-accent);">Rotina real e experiências autênticas</p>
-                            <a href="https://www.instagram.com/reel/DLOInQtxZWa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);">
-                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
-                            </a>
-                            </div>
-                                </div>
-                    
-                    <!-- Vídeo 2 - Beleza -->
-                    <div class="group">
-                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
-                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/beleza_1.mp4" type="video/mp4"></video>
-                            </div>
-                        <div class="text-center mt-6">
-                            <span class="text-lg font-bold mb-2 block" style="color: var(--text-dark);">Beleza</span>
-                            <p class="text-sm" style="color: var(--text-accent);">Produtos acessíveis e funcionais</p>
-                            <a href="https://www.instagram.com/reel/DLECtTSRzi8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);">
-                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Vídeo 3 - Cabelos -->
-                    <div class="group">
-                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
-                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/C1.mp4" type="video/mp4"></video>
-                        </div>
-                        <div class="text-center mt-6">
-                            <span class="text-lg font-bold mb-2 block" style="color: var(--text-dark);">Cabelos</span>
-                            <p class="text-sm" style="color: var(--text-accent);">Cuidados e finalização real</p>
-                            <a href="https://www.instagram.com/reel/DLaw-OQRlAJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);">
-                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
-                            </a>
-                        </div>
-                                </div>
-                    
-                    <!-- Vídeo 4 - Lifestyle -->
-                    <div class="group">
-                        <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
-                            <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls><source src="videos/lf2.mp4" type="video/mp4"></video>
-                            </div>
-                        <div class="text-center mt-6">
-                            <span class="text-lg font-bold mb-2 block" style="color: var(--text-dark);">Lifestyle</span>
-                            <p class="text-sm" style="color: var(--text-accent);">Organização e estilo de vida</p>
-                                </div>
-                            </div>
-                                </div>
-            </section>
-            
-            <!-- Seção: Fotos UGC -->
-            <section class="reveal py-16">
-                <div class="text-center mb-12">
-                    <h2 class="text-sm font-medium mb-2" style="color: var(--text-accent);">Grazy Batista · UGC Creator</h2>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-dark);">Fotos UGC</h1>
-                    <p class="text-sm max-w-2xl mx-auto" style="color: var(--text-main);">Fotografias autênticas que contam histórias reais</p>
+                    <h2 class="text-sm font-medium mb-2" style="color: var(--text-accent);">Meu Trabalho</h2>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-dark);">Portfólio UGC</h1>
+                    <p class="text-base max-w-2xl mx-auto" style="color: var(--text-main);">Conteúdo autêntico e profissional para conectar sua marca com o público.</p>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-8 max-w-xl mx-auto p-8 rounded-2xl">
-                    <!-- Foto 1 -->
-                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
-                        <img src="images/ftugc (1).png" alt="Foto UGC 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
-                            <a href="https://www.instagram.com/grazybatistta_/p/DLlLMrkxHCT/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full">
-                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
-                            </a>
+
+                <!-- Abas do Portfólio -->
+                <div class="flex justify-center mb-10">
+                    <div class="flex space-x-2 p-1 rounded-full" style="background-color: var(--card-bg-transparent); backdrop-filter: blur(4px);">
+                        <button data-tab="videos" class="portfolio-tab active py-2 px-6 rounded-full text-sm font-semibold">Vídeos</button>
+                        <button data-tab="fotos" class="portfolio-tab py-2 px-6 rounded-full text-sm font-semibold">Fotos</button>
+                    </div>
+                </div>
+
+                <!-- Conteúdo das Abas -->
+                <div>
+                    <!-- Painel de Vídeos -->
+                    <div id="videos" class="tab-pane">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
+                            <!-- Vídeo 1 -->
+                            <div class="group flex flex-col items-center">
+                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls loop muted playsinline><source src="videos/maternidade.mp4" type="video/mp4"></video>
+                                </div>
+                                <div class="text-center mt-6">
+                                    <h3 class="text-lg font-bold" style="color: var(--text-dark);">Maternidade</h3>
+                                    <p class="text-sm" style="color: var(--text-accent);">Rotina real e experiências</p>
+                                    <a href="https://www.instagram.com/reel/DMlLTxsx24Y/?igsh=bmtpOXNyaTlhdmNs" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
+                            <!-- Vídeo 2 -->
+                            <div class="group flex flex-col items-center">
+                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls loop muted playsinline><source src="videos/b.mp4" type="video/mp4"></video>
+                                </div>
+                                <div class="text-center mt-6">
+                                    <h3 class="text-lg font-bold" style="color: var(--text-dark);">Beleza</h3>
+                                    <p class="text-sm" style="color: var(--text-accent);">Produtos acessíveis</p>
+                                    <a href="https://www.instagram.com/reel/DMauI8lsniQ/?igsh=anFmeWE3MGpuem9k" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
+                            <!-- Vídeo 3 -->
+                            <div class="group flex flex-col items-center">
+                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls loop muted playsinline><source src="videos/C1.mp4" type="video/mp4"></video>
+                                </div>
+                                <div class="text-center mt-6">
+                                    <h3 class="text-lg font-bold" style="color: var(--text-dark);">Cabelos</h3>
+                                    <p class="text-sm" style="color: var(--text-accent);">Cuidados e finalização</p>
+                                    <a href="https://www.instagram.com/reel/DLaw-OQRlAJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
+                            <!-- Vídeo 4 -->
+                            <div class="group flex flex-col items-center">
+                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls loop muted playsinline><source src="videos/lf.mp4" type="video/mp4"></video>
+                                </div>
+                                <div class="text-center mt-6">
+                                    <h3 class="text-lg font-bold" style="color: var(--text-dark);">Lifestyle</h3>
+                                    <p class="text-sm" style="color: var(--text-accent);">Organização e bem-estar</p>
+                                    <a href="https://www.instagram.com/reel/DMrEgsJxGWF/?igsh=NG1zN2xlbWtsMTRh" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
+                             <!-- Vídeo 5 -->
+                            <div class="group flex flex-col items-center">
+                                <div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[450px] w-[225px] shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                                    <video class="w-full h-full object-cover rounded-[2rem] themed-image" controls loop muted playsinline><source src="videos/review.mp4" type="video/mp4"></video>
+                                </div>
+                                <div class="text-center mt-6">
+                                    <h3 class="text-lg font-bold" style="color: var(--text-dark);">Review</h3>
+                                    <p class="text-sm" style="color: var(--text-accent);">Avaliação sincera de produtos</p>
+                                    <a href="https://www.instagram.com/reel/DMtxUp0x7lS/?igsh=NGQ3c3FsdGdlZTI=" target="_blank" class="inline-block mt-3 text-xs font-medium hover:opacity-80 transition-opacity" style="color: var(--primary);"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Foto 2 -->
-                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
-                        <img src="images/ftugc (2).png" alt="Foto UGC 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
-                            <a href="https://www.instagram.com/grazybatistta_/p/DKve0TUxCXk/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full">
-                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Foto 3 -->
-                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
-                        <img src="images/ftugc (3).png" alt="Foto UGC 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
-                            <a href="https://www.instagram.com/grazybatistta_/p/DLSLM31R7jz/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full">
-                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Foto 4 -->
-                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
-                        <img src="images/ftugc (4).png" alt="Foto UGC 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
-                            <a href="https://www.instagram.com/grazybatistta_/p/DLpl-HXR_AL/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full">
-                                <i class="fab fa-instagram mr-1"></i>Ver no Instagram
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Foto 5 -->
-                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
-                        <img src="images/ftugc 5.jpg" alt="Foto UGC 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
-                            <!-- Adicione o link do Instagram se houver -->
-                        </div>
-                    </div>
-                    <!-- Foto 6 -->
-                    <div class="aspect-square rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
-                        <img src="images/ftugc 6.jpg" alt="Foto UGC 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20ition-all duration-300 flex items-center justify-center">
-                            <!-- Adicione o link do Instagram se houver -->
+                    <!-- Painel de Fotos -->
+                    <div id="fotos" class="tab-pane hidden">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                            <!-- Foto 1 -->
+                            <div class="aspect-w-1 aspect-h-1 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                                <img src="images/ftugc (1).png" alt="Foto UGC 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                    <a href="https://www.instagram.com/grazybatistta_/p/DLlLMrkxHCT/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
+                             <!-- Foto 2 -->
+                            <div class="aspect-w-1 aspect-h-1 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                                <img src="images/ftugc (2).png" alt="Foto UGC 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                    <a href="https://www.instagram.com/grazybatistta_/p/DKve0TUxCXk/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
+                             <!-- Foto 3 -->
+                            <div class="aspect-w-1 aspect-h-1 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                                <img src="images/ftugc (3).png" alt="Foto UGC 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                    <a href="https://www.instagram.com/grazybatistta_/p/DLSLM31R7jz/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
+                             <!-- Foto 4 -->
+                            <div class="aspect-w-1 aspect-h-1 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                                <img src="images/ftugc (4).png" alt="Foto UGC 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                    <a href="https://www.instagram.com/grazybatistta_/p/DLpl-HXR_AL/" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
+                             <!-- Foto 5 -->
+                            <div class="aspect-w-1 aspect-h-1 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                                <img src="images/ftugc 5.jpg" alt="Foto UGC 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                    <a href="#" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
+                             <!-- Foto 6 -->
+                            <div class="aspect-w-1 aspect-h-1 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group relative">
+                                <img src="images/ftugc 6.jpg" alt="Foto UGC 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                    <a href="#" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full"><i class="fab fa-instagram mr-1"></i>Ver no Instagram</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -481,7 +438,7 @@
                     <div class="p-6 rounded-2xl backdrop-blur-sm border transform hover:-translate-y-2" style="background-color: var(--card-bg-transparent); border-color: rgba(255,255,255,0.1); transition-property: transform, background-color; transition-duration: 300ms;">
                         <i class="fas fa-cut text-4xl mb-3" style="color: var(--text-dark);"></i>
                         <h3 class="text-xl font-bold" style="color: var(--text-dark);">Cabelos</h3>
-                        <p class="mt-2 text-sm opacity-90" style="color: var(--card-text);">Cuidados, finalização e produtos para cabelos reais.</p>
+                        <p class="mt-2 text-sm opacity-90" style="color: var(--card-text);">Cuidados, finalização e produtos.</p>
                     </div>
                     <div class="p-6 rounded-2xl backdrop-blur-sm border transform hover:-translate-y-2" style="background-color: var(--card-bg-transparent); border-color: rgba(255,255,255,0.1); transition-property: transform, background-color; transition-duration: 300ms;">
                         <i class="fas fa-female text-4xl mb-3" style="color: var(--text-dark);"></i>
@@ -496,14 +453,14 @@
                  <h2 class="text-5xl font-bold" style="color: var(--text-dark);">Vamos criar juntos?</h2>
                  <p class="text-lg mt-3 max-w-xl mx-auto" style="color: var(--text-accent);">Estou animada para ajudar sua marca a brilhar! Entre em contato.</p>
                  <div class="mt-10">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=graziellybatistta17@gmail.com" target="_blank" rel="noopener" class="gradient-btn inline-block text-white font-bold py-4 px-12 rounded-full text-lg shadow-lg">
-                        <i class="fas fa-envelope mr-3"></i> Enviar um e-mail
-                    </a>
+                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=graziellybatistta17@gmail.com" target="_blank" rel="noopener" class="gradient-btn inline-block text-white font-bold py-4 px-12 rounded-full text-lg shadow-lg">
+                         <i class="fas fa-envelope mr-3"></i> Enviar um e-mail
+                     </a>
                  </div>
-                 <div class="mt-10 flex justify-center gap-8 text-3xl" style="color: var(--text-dark);">
-                    <a href="https://www.instagram.com/grazybatistta_/" target="_blank" style="color: var(--text-main);"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@grazybatista23?_t=ZM-8x4gx8kxLnC&_r=1" target="_blank" style="color: var(--text-main);"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://wa.me/5599984491302" target="_blank" style="color: var(--text-main);"><i class="fab fa-whatsapp"></i></a>
+                 <div class="mt-10 flex justify-center gap-8 text-3xl">
+                     <a href="https://www.instagram.com/grazybatistta_/" target="_blank" class="hover:opacity-70 transition-opacity" style="color: var(--text-main);"><i class="fab fa-instagram"></i></a>
+                     <a href="https://www.tiktok.com/@grazybatista23" target="_blank" class="hover:opacity-70 transition-opacity" style="color: var(--text-main);"><i class="fab fa-tiktok"></i></a>
+                     <a href="https://wa.me/5599984491302" target="_blank" class="hover:opacity-70 transition-opacity" style="color: var(--text-main);"><i class="fab fa-whatsapp"></i></a>
                  </div>
             </section>
 
@@ -531,8 +488,7 @@
             });
         }, { threshold: 0.1 });
 
-        const elementsToReveal = document.querySelectorAll('.reveal');
-        elementsToReveal.forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         // LÓGICA PARA O MENU LATERAL
         const menuBtn = document.getElementById('menu-btn');
@@ -553,7 +509,9 @@
         menuBtn.addEventListener('click', toggleMenu);
         menuOverlay.addEventListener('click', toggleMenu);
         menuLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
+            link.addEventListener('click', (e) => {
+                setTimeout(toggleMenu, 150);
+            });
         });
 
         // LÓGICA PARA O SELETOR DE TEMA
@@ -573,9 +531,8 @@
             applyTheme(newTheme);
         });
 
-        // Aplica o tema salvo ao carregar a página
         document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light'; // Padrão para 'light'
+            const savedTheme = localStorage.getItem('theme') || 'light';
             applyTheme(savedTheme);
         });
 
@@ -585,11 +542,9 @@
 
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Desativa todas as abas e painéis
                 tabs.forEach(t => t.classList.remove('active'));
                 panes.forEach(p => p.classList.add('hidden'));
 
-                // Ativa a aba e o painel clicado
                 tab.classList.add('active');
                 const targetPane = document.getElementById(tab.dataset.tab);
                 targetPane.classList.remove('hidden');
